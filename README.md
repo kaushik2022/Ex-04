@@ -165,13 +165,11 @@ BigInteger p = getNextPrime("10600"); /* approximate
 prime */
 BigInteger q = findQ(p.subtract(one));
 BigInteger g = getGen(p,q,randObj);
-System.out.println(" \n simulation of Digital Signature
-Algorithm \n");
-System.out.println(" \n global public key components
-are:\n");
-System.out.println("\np is: " + p);
-System.out.println("\nq is: " + q);
-System.out.println("\ng is: " + g);
+System.out.println("simulation of Digital SignatureAlgorithm");
+System.out.println("global public key componentsare:");
+System.out.println("p is: " + p);
+System.out.println("q is: " + q);
+System.out.println("g is: " + g);
 BigInteger x = new BigInteger(q.bitLength(), randObj);
 x = x.mod(q);
 BigInteger y = g.modPow(x,p);
@@ -183,12 +181,12 @@ randObj);
 BigInteger kInv = k.modInverse(q);
 BigInteger s = kInv.multiply(hashVal.add(x.multiply(r)));
 s = s.mod(q);
-System.out.println("\nsecret information are:\n");
+System.out.println("secret information are:");
 System.out.println("x (private) is:" + x);
 System.out.println("k (secret) is: " + k);
 System.out.println("y (public) is: " + y);
 System.out.println("h (rndhash) is: " + hashVal);
-System.out.println("\n generating digital signature:\n");
+System.out.println("generating digital signature:");
 System.out.println("r is : " + r);
 System.out.println("s is : " + s);
 BigInteger w = s.modInverse(q);
@@ -196,27 +194,24 @@ BigInteger u1 = (hashVal.multiply(w)).mod(q);
 BigInteger u2 = (r.multiply(w)).mod(q);
 BigInteger v = (g.modPow(u1,p)).multiply(y.modPow(u2,p));
 v = (v.mod(p)).mod(q);
-System.out.println("\nverifying digital signature
-(checkpoints)\n:");
+System.out.println("verifying digital signature(checkpoints)\n:");
 System.out.println("w is : " + w);
 System.out.println("u1 is : " + u1);
 System.out.println("u2 is : " + u2);
 System.out.println("v is : " + v);
 if (v.equals(r))
 {
-System.out.println("\nsuccess: digital signature is
-verified!\n " + r);
+System.out.println("success: digital signature isverified!\n " + r);
 }
 else
 {
-System.out.println("\n error: incorrect digital
-signature\n ");
+System.out.println("error: incorrect digitalsignature\n ");
 }
 }
 }
 ```
 ## OUTPUT:
-![image](https://github.com/IsaacAIML2023/Ex-04/assets/158465339/337034c5-ea1c-4332-a753-7c5b679325f2)
+![image](https://github.com/kaushik2022/Ex-04/assets/129837020/9dd744ef-d5bb-4316-b11d-fa204ab91b88)
 
 ## RESULT:
 Thus program to implement the signature scheme named digital signature standard (Euclidean Algorithm) is implementeds successfully.
